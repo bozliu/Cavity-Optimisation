@@ -28,12 +28,12 @@ python random_forest.py
 ```
 <img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Random%20Forest%20Algorithm%20Design.png" width="50%">
 
-### (3) Neural Network Classification (3 layers)
+### (3) Neural Network Classification (4 layers)
 
 ```
 python NN_classfication.py
 ```
-### (4) Nerual Network Regression (3 layers) 
+### (4) Nerual Network Regression (5 layers) 
 
 ```
 python NN_regression.py
