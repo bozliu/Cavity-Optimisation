@@ -14,18 +14,19 @@ The objective of this project is to use given three attriabutes,  resonant frequ
     
 ## Algorithem Design 
 ### Overview Structure of Software Design
-<img src="https://github.com/bozliu/E2E-Keyword-Spotting/blob/main/images/Standard%20E2E%20Architecture.png " width="100%">
+<img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Overview%20of%20System%20Architecture.png" width="100%">
 
 ### (1) Decision Tree
 ```
 python decision_tree.py
 ```
-<img src="https://github.com/bozliu/E2E-Keyword-Spotting/blob/main/images/Multi-Head%20Attention%20Architecture.png" width="100%">
+<img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Decision%20Tree%20Algorithm%20Design.png" width="100%">
 
 ### (2) Random Forest 
 ```
 python random_forest.py
 ```
+<img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Random%20Forest%20Algorithm%20Design.png" width="100%">
 
 ### (3) Neural Network Classification (3 layers)
 
@@ -37,6 +38,7 @@ python NN_classfication.py
 ```
 python NN_regression.py
 ```
+<img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Neural%20Network%20Algorithm%20Design.png" width="100%">
 
 
 
