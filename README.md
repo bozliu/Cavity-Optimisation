@@ -40,5 +40,23 @@ python NN_regression.py
 ```
 <img src="https://github.com/bozliu/Cavity-Optimisation/blob/main/pic/Neural%20Network%20Algorithm%20Design.png" width="50%">
 
-
+## Code of Different Regression Methods
+```
+    # Linear Regression
+    linear_reg = linear_model.LinearRegression()
+    # Decision Tree Regression
+    decision_tree_reg = tree.DecisionTreeRegressor()
+    # KNN Regression
+    knn_reg = neighbors.KNeighborsRegressor()
+    # Random Forest Regression
+    random_forest_reg = ensemble.RandomForestRegressor(n_estimators=20)
+    # Ada boost Regression
+    ada_boost_reg = ensemble.AdaBoostRegressor(n_estimators=50)
+    # GBRT Regression
+    GBRT_reg = ensemble.GradientBoostingRegressor(n_estimators=100)
+    # Bagging Regression
+    bagging_reg = BaggingRegressor()
+    # Extra Regression
+    extra_tree_reg = ExtraTreeRegressor()
+ ```
 
