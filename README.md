@@ -7,7 +7,7 @@ The objective of this project is to use given three attriabutes,  resonant frequ
 - [PyTorch >= 1.3](https://pytorch.org/)
 - Pandas
 -Sklearn
-    ```
+
 ## Dataset
 - File: Model1.xlsx
 - Objective: Using given "Electric_Abs_3D", "Magnetic_Abs_3D", "Mode 1" to predict "cR" and "cH".
