@@ -3,12 +3,12 @@
 ## Branching model
 
 - `main`: protected stable branch
-- `feat/*`: feature branches
-- `release/*`: release-prep branches
+- `codex/feat/*`: feature branches
+- `codex/release/*`: release-prep branches
 
 ## Pull request workflow
 
-1. Create a feature branch from `main`.
+1. Create a `codex/feat/*` branch from `main`.
 2. Run local checks:
    - `ruff check .`
    - `pytest -q`
