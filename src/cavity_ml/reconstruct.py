@@ -65,11 +65,13 @@ def _build_core_dataframe(profile: str, seed: int) -> pd.DataFrame:
     h_norm = (c_h - 4.5) / (50.5 - 4.5)
     m_norm = (mode_1 - mode_1.min()) / (mode_1.max() - mode_1.min())
 
-    electric = 0.90 + 0.16 * (1 - r_norm) + 0.05 * np.sin(2 * np.pi * h_norm) + 0.02 * np.cos(3 * np.pi * m_norm)
-    magnetic = 0.88 + 0.23 * r_norm + 0.06 * np.cos(2 * np.pi * h_norm) + 0.02 * np.sin(3 * np.pi * m_norm)
+    # Keep physically inspired smooth variation but make cR/cH information
+    # less degenerate for inverse prediction benchmarks.
+    electric = 0.86 + 0.30 * (1 - r_norm) + 0.015 * (1 - h_norm) + 0.006 * np.cos(2 * np.pi * m_norm)
+    magnetic = 0.84 + 0.30 * r_norm + 0.015 * h_norm + 0.006 * np.sin(2 * np.pi * m_norm)
 
-    electric += rng.normal(0.0, 0.0035, size=electric.shape)
-    magnetic += rng.normal(0.0, 0.0035, size=magnetic.shape)
+    electric += rng.normal(0.0, 0.0008, size=electric.shape)
+    magnetic += rng.normal(0.0, 0.0008, size=magnetic.shape)
 
     electric = np.clip(electric, 0.84, 1.22)
     magnetic = np.clip(magnetic, 0.84, 1.28)

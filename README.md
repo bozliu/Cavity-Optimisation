@@ -89,16 +89,20 @@ python scripts/run_balanced_experiments.py --config configs/default.yaml --recon
 
 Source: [results/benchmark/benchmark_table.csv](results/benchmark/benchmark_table.csv)
 
-| Method | Design | Task | Radius Acc. | Radius ±1 | Height R2 | Height MAE (mm) |
-|---|---|---|---:|---:|---:|---:|
-| `torch_radius_classifier` | two_task | radius | 0.7804 | 0.9731 | - | - |
-| `extra_trees_classifier` | two_task | radius | 0.6603 | 0.9668 | - | - |
-| `random_forest_classifier` | two_task | radius | 0.6524 | 0.9684 | - | - |
-| `linear_regression` | two_task | height | - | - | 0.3953 | 8.3807 |
-| `knn_regressor` | two_task | height | - | - | 0.9012 | 1.6656 |
-| `extra_trees_regressor` | two_task | height | - | - | 0.9241 | 1.3459 |
-| `torch_height_regressor` | two_task | height | - | - | 0.9395 | 1.4161 |
-| `multioutput_extra_trees` | multioutput | joint | 0.7314 | 0.9415 | 0.9241 | 1.3469 |
+| Method | Design | Task | Radius Acc. | Radius ±1 | Height R2 | Height MAE (mm) | Train Seconds |
+|---|---|---|---:|---:|---:|---:|---:|
+| `decision_tree_classifier` | two_task | radius | 0.9463 | 0.9968 | - | - | 0.0044 |
+| `random_forest_classifier` | two_task | radius | 0.9605 | 1.0000 | - | - | 0.2437 |
+| `extra_trees_classifier` | two_task | radius | 0.9747 | 1.0000 | - | - | 0.2701 |
+| `torch_radius_classifier` | two_task | radius | 0.9431 | 0.9984 | - | - | 8.2864 |
+| `linear_regression` | two_task | height | - | - | 0.4185 | 8.3829 | 0.0098 |
+| `knn_regressor` | two_task | height | - | - | 0.9125 | 1.5459 | 0.0016 |
+| `decision_tree_regressor` | two_task | height | - | - | 0.8917 | 1.5300 | 0.0039 |
+| `extra_trees_regressor` | two_task | height | - | - | 0.9720 | 0.6949 | 0.2276 |
+| `torch_height_regressor` | two_task | height | - | - | 0.8642 | 2.6476 | 10.0961 |
+| `multioutput_extra_trees` | multioutput | joint | 0.9889 | 1.0000 | 0.9723 | 0.6887 | 0.4994 |
+
+The current best submission model is `multioutput_extra_trees`, which exceeds the configured legacy acceptance targets (`radius_accuracy >= 0.863`, `height_r2 >= 0.857`) on the deterministic test split.
 
 ### External SOTA / Prior Work Comparison
 
