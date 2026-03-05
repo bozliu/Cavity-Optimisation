@@ -2,6 +2,20 @@
 
 A privacy-safe, reproducible ML pipeline for predicting cylindrical cavity dimensions from electromagnetic responses.
 
+**Companion blog post:** [Cavity Optimisation With Incorporation of Machine Learning Techniques](https://bozliu.medium.com/cavity-optimisation-with-incorporation-of-machine-learning-techniques-9586e4a70531) [8]
+
+## What Is a Cavity Filter?
+
+Cavity filters are high-Q resonant metal structures used in RF front-ends, especially in telecom base stations and duplexers. Their geometry directly controls resonant behavior, so small changes in dimensions can shift frequency response and coupling performance. In practice, this tuning is often done by experts through iterative manual adjustments, which is slow and hard to scale. This repository learns an inverse mapping from electromagnetic responses to cavity geometry (`cR`, `cH`) to provide fast initial estimates that can warm-start a closed-loop optimizer or RL controller.
+
+![Cavity filter illustration from companion blog post](results/figures/medium_intro.png)
+
+*Illustration from the companion blog post [8]. This is a conceptual visual rather than a literal hardware photograph.*
+
+![Repo-owned schematic of cylindrical cavity geometry](results/figures/cavity_resonator_schematic.svg)
+
+*Repo-owned schematic of the cylindrical cavity geometry used in this project.*
+
 ## Why This Project Matters
 
 Cavity filters are still commonly tuned with expert, manual workflows. That process is expensive, hard to scale, and difficult to reproduce consistently in manufacturing contexts. This project frames part of the tuning problem as a supervised inverse-mapping task:
@@ -247,3 +261,5 @@ Output:
 [6] Z. Wang, J. Yang, J. Hu, W. Feng, and Y. Ou, "Reinforcement Learning Approach to Learning Human Experience in Tuning Cavity Filters," in *2015 IEEE Int. Conf. on Robotics and Biomimetics (ROBIO)*, Zhuhai, China, Dec. 2015, pp. 2145-2150, doi: 10.1109/ROBIO.2015.7419091.
 
 [7] S. Lindstahl and X. Lan, "Reinforcement Learning with Imitation for Cavity Filter Tuning," in *2020 IEEE/ASME Int. Conf. on Advanced Intelligent Mechatronics (AIM)*, Boston, MA, USA, Jul. 2020, pp. 1335-1340, doi: 10.1109/AIM43001.2020.9158839.
+
+[8] "Cavity Optimisation With Incorporation of Machine Learning Techniques," Medium, [Online]. Available: https://bozliu.medium.com/cavity-optimisation-with-incorporation-of-machine-learning-techniques-9586e4a70531 (accessed Mar. 5, 2026).

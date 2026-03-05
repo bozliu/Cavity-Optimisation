@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Cylindrical cavity resonator schematic</title>
+  <desc id="desc">Simple schematic of a cylindrical cavity resonator with radius cR and height cH annotations.</desc>
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cfd6df"/>
+      <stop offset="100%" stop-color="#8f9aa8"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 z" fill="#1f2d3d"/>
+    </marker>
+    <style>
+      .label{font:700 28px 'Helvetica Neue',Helvetica,Arial,sans-serif; fill:#1f2d3d}
+      .small{font:500 22px 'Helvetica Neue',Helvetica,Arial,sans-serif; fill:#37485a}
+      .line{stroke:#1f2d3d; stroke-width:4; fill:none; marker-start:url(#arrow); marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="520" fill="#f6f8fb"/>
+
+  <!-- cavity body -->
+  <ellipse cx="370" cy="140" rx="170" ry="56" fill="#dbe1e9" stroke="#55667a" stroke-width="4"/>
+  <rect x="200" y="140" width="340" height="240" fill="url(#metal)" stroke="#55667a" stroke-width="4"/>
+  <ellipse cx="370" cy="380" rx="170" ry="56" fill="#b7c2d0" stroke="#55667a" stroke-width="4"/>
+
+  <!-- centerline and mode hint -->
+  <line x1="370" y1="88" x2="370" y2="432" stroke="#5f7084" stroke-width="2" stroke-dasharray="8 8"/>
+  <text x="570" y="150" class="small">Cylindrical resonant cavity</text>
+  <text x="570" y="186" class="small">Geometry targets: cR (radius), cH (height)</text>
+
+  <!-- radius annotation -->
+  <line x1="370" y1="260" x2="540" y2="260" class="line"/>
+  <text x="430" y="245" class="label">cR</text>
+
+  <!-- height annotation -->
+  <line x1="150" y1="140" x2="150" y2="380" class="line"/>
+  <text x="104" y="272" class="label">cH</text>
+
+  <!-- ports -->
+  <rect x="166" y="246" width="34" height="28" fill="#d6dde8" stroke="#55667a" stroke-width="3"/>
+  <rect x="540" y="246" width="34" height="28" fill="#d6dde8" stroke="#55667a" stroke-width="3"/>
+  <text x="126" y="236" class="small">RF in</text>
+  <text x="560" y="236" class="small">RF out</text>
+</svg>
