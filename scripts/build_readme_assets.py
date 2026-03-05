@@ -111,7 +111,7 @@ def build_tables(cfg: dict) -> None:
     sota_csv = root / "results/benchmark/sota_comparison.csv"
     sota_rows = [
         {
-            "citation_id": "[1]",
+            "citation_id": "[3]",
             "paper": "Wang and Ou, Applied Sciences, 2022",
             "task_summary": "DDPG-based cavity tuning in simulation and real setup",
             "reported_outcome": "Most test episodes tuned in <= 20 steps (paper claim)",
@@ -121,7 +121,7 @@ def build_tables(cfg: dict) -> None:
             "comparability_note": "Different objective/metric from geometry prediction",
         },
         {
-            "citation_id": "[2]",
+            "citation_id": "[4]",
             "paper": "Nimara et al., CoRL/PMLR, 2023",
             "task_summary": "Model-based RL for cavity filter tuning",
             "reported_outcome": "4x and 10x lower sample complexity vs DDPG and DIRT",
@@ -131,7 +131,7 @@ def build_tables(cfg: dict) -> None:
             "comparability_note": "RL tuning objective, not direct cR/cH regression",
         },
         {
-            "citation_id": "[3]",
+            "citation_id": "[5]",
             "paper": "Wang et al., IEEE CBS, 2018",
             "task_summary": "Continuous RL with knowledge-inspired reward shaping",
             "reported_outcome": "Demonstrated autonomous cavity tuning (paper-level)",
@@ -141,7 +141,7 @@ def build_tables(cfg: dict) -> None:
             "comparability_note": "Different target and evaluation protocol",
         },
         {
-            "citation_id": "[4]",
+            "citation_id": "[6]",
             "paper": "Wang et al., IEEE ROBIO, 2015",
             "task_summary": "RL approach to learning human tuning experience",
             "reported_outcome": "Early RL cavity tuning framework",
@@ -151,7 +151,7 @@ def build_tables(cfg: dict) -> None:
             "comparability_note": "Different target and evaluation protocol",
         },
         {
-            "citation_id": "[5]",
+            "citation_id": "[7]",
             "paper": "Lindstahl and Lan, IEEE AIM, 2020",
             "task_summary": "Reinforcement learning with imitation for cavity filter tuning",
             "reported_outcome": "Imitation-enhanced RL for tuning policy learning",
