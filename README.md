@@ -38,6 +38,7 @@ Compared with prior student-style implementations, this repository adds:
 - reproducibility by construction (reconstruction script + checksums + deterministic splits),
 - public-release hygiene (privacy cleanup, no private docs/data/models tracked),
 - model selection and benchmark packaging suitable for PR/CI review,
+- an inverse-geometry predictor that can be used as a warm-start component for closed-loop tuning workflows,
 - explicit comparability notes vs RL-based cavity tuning literature.
 
 ## Data Access (Public Reconstruction)
@@ -118,6 +119,18 @@ Source: [results/benchmark/sota_comparison.csv](results/benchmark/sota_compariso
 
 Note: external papers focus on sequential policy tuning and do not report the exact `cR` classification + `cH` regression metrics used in this repository.
 
+### Innovation vs RL tuning literature ([3]-[7])
+
+This is a complementary comparison (different objectives), not a claim of metric superiority.
+
+| Aspect | This repo (inverse geometry prediction + reproducible pipeline) | RL-tuning prior work ([3]-[7]) | Practical takeaway |
+|---|---|---|---|
+| Objective | Predict `cR/cH` directly from EM responses | Learn a sequential tuning policy to reach a spec | Use inverse prediction to propose an initial design; use RL/optimizers to fine-tune |
+| Data dependency | Reconstructable synthetic data; supports swapping in real CST/measurement exports | Typically requires a simulator/real tuning loop and step-by-step interaction | This repo lowers the barrier to benchmarking and CI; RL requires a tuned environment |
+| Runtime budget | Minutes on a laptop for end-to-end runs | Many episodes/steps for policy learning and evaluation | Useful for fast iteration and regression testing; RL is heavier but closes the loop |
+| Reproducibility packaging | Deterministic reconstruction, splits, metrics, and CI checks | Often paper-specific tooling and environment assumptions | Easier peer review and long-term maintenance with PR/CI gates |
+| Deployment interface | CLI + Flask JSON contract for single-shot inference | Research prototypes focused on sequential control loops | Use this repo as a lightweight service; integrate with simulators if needed |
+
 ## Visualized Results
 
 ### Model comparison
@@ -158,6 +171,9 @@ Note: external papers focus on sequential policy tuning and do not report the ex
 2. **Model selection policy**: combine metric columns with runtime to define deployment thresholds.
 3. **Error diagnostics**: use the same plotting script to compare failure modes across datasets/seeds.
 4. **Reproducibility reporting**: regenerate tables/figures in CI or release workflows for transparent model updates.
+5. **Warm-start tuning**: use predicted `cR/cH` as an initialization for a simulator-based optimizer or RL policy.
+6. **Regression-to-real**: replace reconstruction with real CST exports (or measurements) while keeping the same feature/target schema and evaluation scripts.
+7. **Benchmark extension**: add a new model family and append results into the same metrics schema to keep comparisons stable over time.
 
 Generate/re-generate assets with:
 
@@ -224,10 +240,10 @@ Output:
 
 [3] Y. Wang and Y. Ou, "A DDPG-Based Method for Tuning Cavity Filter Automatically," *Applied Sciences*, vol. 12, no. 20, p. 10498, 2022, doi: 10.3390/app122010498.
 
-[4] F. Nimara, Y. Lan, and B. Lennartson, "Model-Based Reinforcement Learning for Cavity Filter Tuning," in *Proc. CoRL*, PMLR 229, 2023. [Online]. Available: https://proceedings.mlr.press/v229/nimara23a.html
+[4] D. D. Nimara, M. Malek-Mohammadi, P. Ogren, J. Wei, and V. Huang, "Model-Based Reinforcement Learning for Cavity Filter Tuning," in *Proc. The 5th Annual Learning for Dynamics and Control Conf. (L4DC)*, Proc. Mach. Learn. Res., vol. 211, pp. 1297-1307, Jun. 2023. [Online]. Available: https://proceedings.mlr.press/v211/nimara23a.html
 
-[5] Y. Wang, Y. Lan, and C. Holmberg, "Continuous reinforcement learning with knowledge-inspired reward shaping for autonomous cavity filter tuning," in *2018 IEEE Int. Conf. on Cyborg and Bionic Systems (CBS)*, 2018, doi: 10.1109/CBS.2018.8612197.
+[5] Z. Wang, Y. Ou, X. Wu, and W. Feng, "Continuous Reinforcement Learning With Knowledge-Inspired Reward Shaping for Autonomous Cavity Filter Tuning," in *2018 IEEE Int. Conf. on Cyborg and Bionic Systems (CBS)*, Shenzhen, China, Oct. 2018, pp. 53-58, doi: 10.1109/CBS.2018.8612197.
 
-[6] Y. Wang, Y. Lan, and C. Holmberg, "Reinforcement learning approach to learning human experience in tuning cavity filters," in *2015 IEEE Int. Conf. on Robotics and Biomimetics (ROBIO)*, 2015, doi: 10.1109/ROBIO.2015.7419091.
+[6] Z. Wang, J. Yang, J. Hu, W. Feng, and Y. Ou, "Reinforcement Learning Approach to Learning Human Experience in Tuning Cavity Filters," in *2015 IEEE Int. Conf. on Robotics and Biomimetics (ROBIO)*, Zhuhai, China, Dec. 2015, pp. 2145-2150, doi: 10.1109/ROBIO.2015.7419091.
 
-[7] J. Lindstahl and Y. Lan, "Reinforcement Learning with Imitation for Cavity Filter Tuning," in *2020 IEEE/ASME Int. Conf. on Advanced Intelligent Mechatronics (AIM)*, 2020, doi: 10.1109/AIM43001.2020.9158839.
+[7] S. Lindstahl and X. Lan, "Reinforcement Learning with Imitation for Cavity Filter Tuning," in *2020 IEEE/ASME Int. Conf. on Advanced Intelligent Mechatronics (AIM)*, Boston, MA, USA, Jul. 2020, pp. 1335-1340, doi: 10.1109/AIM43001.2020.9158839.

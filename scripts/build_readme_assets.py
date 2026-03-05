@@ -122,12 +122,12 @@ def build_tables(cfg: dict) -> None:
         },
         {
             "citation_id": "[4]",
-            "paper": "Nimara et al., CoRL/PMLR, 2023",
+            "paper": "Nimara et al., L4DC/PMLR, 2023",
             "task_summary": "Model-based RL for cavity filter tuning",
             "reported_outcome": "4x and 10x lower sample complexity vs DDPG and DIRT",
             "radius_accuracy": "N/A",
             "height_r2": "N/A",
-            "url": "https://proceedings.mlr.press/v229/nimara23a.html",
+            "url": "https://proceedings.mlr.press/v211/nimara23a.html",
             "comparability_note": "RL tuning objective, not direct cR/cH regression",
         },
         {
