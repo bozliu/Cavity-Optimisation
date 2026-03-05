@@ -194,7 +194,7 @@ Output:
 {
   "predicted_radius_mm": 8.5,
   "predicted_height_mm": 23.0,
-  "model_name": "torch_radius_classifier+torch_height_regressor",
+  "model_name": "multioutput_extra_trees",
   "model_version": "v1"
 }
 ```
