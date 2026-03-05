@@ -1,0 +1,34 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.coverage
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Sensitive/runtime files
+.env
+.env.*
+*secret*
+*token*
+
+# Large artifacts and local outputs
+artifacts/models/**
+artifacts/splits/**
+artifacts/metrics/**
+!artifacts/metrics/.gitkeep
+
+data/**
+!data/README.md
+!data/.gitkeep
+
+archive/**
+!archive/README.md
+!archive/.gitkeep
+
+results/figures/generated/**

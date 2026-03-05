@@ -1,0 +1,33 @@
+random_state: 44
+paths:
+  raw_frequency_csv: data/raw/run_3_frequencies.csv
+  raw_eh_csv: data/raw/run_3_e_h_fields.csv
+  xlsx_path: data/alternate/Mode1.xlsx
+  processed_csv: data/processed/cavity_dataset.csv
+  splits_json: artifacts/splits/split_indices.json
+  metrics_json: artifacts/metrics/metrics.json
+  metrics_csv: artifacts/metrics/metrics.csv
+  report_md: reports/experiment_report.md
+  best_metadata_json: artifacts/models/best_model_metadata.json
+split:
+  test_size: 0.2
+  val_size: 0.1
+  stratify_radius: true
+acceptance:
+  legacy_radius_accuracy: 0.863
+  legacy_height_r2: 0.857
+models:
+  random_forest_n_estimators: 300
+  extra_trees_n_estimators: 500
+  multioutput_extra_trees_n_estimators: 700
+  knn_neighbors: 8
+  torch:
+    batch_size: 256
+    radius_epochs: 350
+    height_epochs: 350
+    learning_rate: 0.002
+    weight_decay: 0.0001
+    radius_hidden: [512, 256, 128]
+    height_hidden: [512, 256, 128]
+selection:
+  runtime_penalty: 0.002
